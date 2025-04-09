@@ -1,36 +1,26 @@
-<div>
-  <div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-      Add a new board
-    </button>
-    <!--    <h2>
-      Add a new board
-    </h2>-->
-
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card ">
+      <div class="card-header d-flex align-items-center">
+      <h1 class="h6">All boards</h1>
+        
+        <button type="button" class="btn btn-sm btn-outline-success ms-auto" data-bs-toggle="modal" data-bs-target="#myModal">
+          Add a new board
+        </button>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% @list_of_boards.each do |a_board| %>
+          <li class="list-group-item d-flex">
+            <a href="/boards/<%= a_board.id %>">
+              <%= a_board.name %>
+            </a>
+            <i class="fa-solid fa-chevron-right ms-auto"></i>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Featured
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-</div>
-
-<ul>
-  <% @list_of_boards.each do |a_board| %>
-    <li>
-      <a href="/boards/<%= a_board.id %>">
-        <%= a_board.name %>
-      </a>
-    </li>
-  <% end %>
-</ul>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
