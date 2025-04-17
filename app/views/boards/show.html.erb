@@ -12,9 +12,9 @@
 <nav>
   <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 
-    <button class="nav-link active" id="nav-active-tab" data-bs-toggle="tab" data-bs-target="#nav-active" type="button" role="tab" aria-controls="nav-active" aria-selected="true">Active posts</button>
+    <button class="nav-link active" id="nav-active-tab" data-bs-toggle="tab" data-bs-target="#nav-active" type="button" role="tab" aria-controls="nav-active" aria-selected="true">Active posts (<%= @active_posts.length %>)</button>
 
-    <button class="nav-link" id="nav-expired-tab" data-bs-toggle="tab" data-bs-target="#nav-expired" type="button" role="tab" aria-controls="nav-expired" aria-selected="false">Expired posts</button>
+    <button class="nav-link" id="nav-expired-tab" data-bs-toggle="tab" data-bs-target="#nav-expired" type="button" role="tab" aria-controls="nav-expired" aria-selected="false">Expired posts (<%= @expired_posts.length %>)</button>
 
   </div>
 </nav>
@@ -22,7 +22,7 @@
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab" tabindex="0">
 
-    <h2>Active posts</h2>
+    <h2>Active posts </h2>
 
     <table border="1">
       <tr>
