@@ -9,47 +9,64 @@
   </div>
 </div>
 
-<hr>
+<nav>
+  <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 
-<h2>Active posts</h2>
+    <button class="nav-link active" id="nav-active-tab" data-bs-toggle="tab" data-bs-target="#nav-active" type="button" role="tab" aria-controls="nav-active" aria-selected="true">Active posts</button>
 
-<table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Posted on</th>
-    <th>Expires on</th>
-  </tr>
+    <button class="nav-link" id="nav-expired-tab" data-bs-toggle="tab" data-bs-target="#nav-expired" type="button" role="tab" aria-controls="nav-expired" aria-selected="false">Expired posts</button>
 
-  <% @active_posts.each do |a_post| %>
-    <tr>
-      <td><%= a_post.title %></td>
-      <td><%= a_post.body %></td>
-      <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
-      <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
-    </tr>
-  <% end %>
-</table>
+  </div>
+</nav>
 
-<h2>Expired posts</h2>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab" tabindex="0">
 
-<table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Posted on</th>
-    <th>Expired on</th>
-  </tr>
+    <h2>Active posts</h2>
 
-  <% @expired_posts.each do |a_post| %>
-    <tr>
-      <td><%= a_post.title %></td>
-      <td><%= a_post.body %></td>
-      <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
-      <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
-    </tr>
-  <% end %>
-</table>
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Posted on</th>
+        <th>Expires on</th>
+      </tr>
+
+      <% @active_posts.each do |a_post| %>
+        <tr>
+          <td><%= a_post.title %></td>
+          <td><%= a_post.body %></td>
+          <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
+          <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+  <div class="tab-pane fade" id="nav-expired" role="tabpanel" aria-labelledby="nav-expired-tab" tabindex="0">
+
+    <h2>Expired posts</h2>
+
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Posted on</th>
+        <th>Expired on</th>
+      </tr>
+
+      <% @expired_posts.each do |a_post| %>
+        <tr>
+          <td><%= a_post.title %></td>
+          <td><%= a_post.body %></td>
+          <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
+          <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -84,7 +101,7 @@
 
             <input class ="form-control" type="date" id="expires_on_box" name="query_expires_on">
           </div>
-          
+
           <input type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
 
           <div class="d-grid">
